@@ -40,6 +40,8 @@ public class Autor extends Persona{
 	 */
 	public Autor() {
 		super();
+		this.nacionalidad="Chileno";
+		this.casado=false;
 	}
 	/**
 	 * @return the nacionalidad
@@ -72,11 +74,11 @@ public class Autor extends Persona{
 	public String impresion() {
 		String msj;
 		msj = super.impresion()+
-				"El Autor, tiene la nacionalidad : "+this.nacionalidad;
+				"\nEl Autor, tiene la nacionalidad : "+this.nacionalidad;
 		if (casado) {
-			msj = msj + " esta casado";
+			msj = msj + "\n\t esta casado";
 		}else{
-			msj = msj + " no esta casado";
+			msj = msj + "\n\t no esta casado";
 		}
 		return msj;
 				

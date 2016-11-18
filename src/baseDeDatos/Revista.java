@@ -35,7 +35,11 @@ public class Revista extends Publicacion{
 		super(titulo, annoEdicion, autor, descripcion, editorial);
 		this.nombre = nombre;
 		this.periodicidad = periodicidad;
-		this.cantidadEjemplares = cantidadEjemplares;
+		if(cantidadEjemplares >= 10){
+			this.cantidadEjemplares = cantidadEjemplares;
+		}else{
+			this.cantidadEjemplares = 10;
+		}
 		this.cantidadPaginas = cantidadPaginas;
 		this.issn = issn;
 		this.traducida = traducida;
@@ -46,6 +50,12 @@ public class Revista extends Publicacion{
 	 */
 	public Revista() {
 		super();
+		this.nombre = "sin nombre";
+		this.periodicidad = 0;
+		this.cantidadEjemplares = 10;
+		this.cantidadPaginas = 1;
+		this.issn = new Issn();
+		this.traducida = false;
 	}
 
 	/**
@@ -139,7 +149,7 @@ public class Revista extends Publicacion{
 	public String toString() {
 		return super.toString()+
 				"Revista [nombre=" + nombre + ", periodicidad=" + periodicidad + ", cantidadEjemplares="
-				+ cantidadEjemplares + ", cantidadPaginas=" + cantidadPaginas + ", issn=" + issn + ", traducida="
+				+ cantidadEjemplares + ", cantidadPaginas=" + cantidadPaginas + ", issn=" + issn.impresion() + ", traducida="
 				+ traducida + "]";
 	}
 

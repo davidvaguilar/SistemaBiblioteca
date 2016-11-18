@@ -18,7 +18,7 @@ public class Cd extends Publicacion {
 	/**
 	 * Contructor con todos los parametros
 	 * 
-	 * @param titulo
+	 * @param titulo 
 	 * @param annoEdicion
 	 * @param autor
 	 * @param descripcion
@@ -41,6 +41,10 @@ public class Cd extends Publicacion {
 	 * Contructor sin parametros
 	 */
 	public Cd() {
+		this.tema = "";
+		this.issn = new Issn();
+		this.duracion = new Tiempo();
+		this.cantidadPistas = 0;
 	}
 
 	/**
@@ -101,9 +105,34 @@ public class Cd extends Publicacion {
 	
 	public String impresion(){
 		return "El CD: nombre del tema: "+this.tema+
-				" con el codigo "+ this.issn+ " issn "+
-				" con duracion: "+ this.duracion+
+				" con el codigo "+ this.issn.impresion() + " issn "+
+				" con duracion: "+ this.duracion.impresion()+
 				" con "+this.cantidadPistas+" cantidad de pistas";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((issn == null) ? 0 : issn.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cd other = (Cd) obj;
+		if (issn == null) {
+			if (other.issn != null)
+				return false;
+		} else if (!issn.equals(other.issn))
+			return false;
+		return true;
 	}
 	
 	

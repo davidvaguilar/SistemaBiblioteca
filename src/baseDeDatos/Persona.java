@@ -49,6 +49,15 @@ public abstract class Persona {
 	 * Contructor sin parametros
 	 */
 	public Persona() {
+		this.nombre = "";
+		this.apellidos = "";
+		this.rut = "";
+		this.edad = 0;
+		this.direccion = "sin domicilio";
+		this.profesion = "sin profesion";
+		this.cantidadDeHijos = 0;
+		this.lugarDeTrabajo = "cesante";
+		this.antiguedadLaboral = 0;
 	}
 	/**
 	 * @return the nombre
@@ -165,13 +174,13 @@ public abstract class Persona {
 	 */
 	public String impresion(){
 		return "La Persona: Rut : " + this.rut +
-				" nombre completo : " + this.nombre + " " + this.apellidos +
-				" tiene : " + this.edad + " annos" +
-				" domicilio : " + this.direccion +
-				" con profesion : " + this.profesion +
-				" tiene : " + this.cantidadDeHijos + " hijos" +
-				" trabaja en : " + this.lugarDeTrabajo +
-				" lleva trabajando : " + this.antiguedadLaboral;
+				"\n\t nombre completo : " + this.nombre + " " + this.apellidos +
+				"\n\t tiene : " + this.edad + " annos" +
+				"\n\t domicilio : " + this.direccion +
+				"\n\t con profesion : " + this.profesion +
+				"\n\t tiene : " + this.cantidadDeHijos + " hijos" +
+				"\n\t trabaja en : " + this.lugarDeTrabajo +
+				"\n\t lleva trabajando : " + this.antiguedadLaboral + " annos";
 	}
 	
 	

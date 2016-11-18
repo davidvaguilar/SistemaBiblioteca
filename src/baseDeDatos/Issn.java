@@ -23,13 +23,49 @@ public final class Issn {
 	 * @param grupoDos digitos grupoDos
 	 */
 	public Issn(String grupoUno, String grupoDos) {
-		this.grupoUno = grupoUno;
-		this.grupoDos = grupoDos;
+		
+		String grupoUnoCorto=grupoUno.substring(0,4);
+		String grupoDosCorto=grupoDos.substring(0,3);
+		
+		this.grupoUno = grupoUnoCorto;
+		this.grupoDos = grupoDosCorto;
+		
+		Integer grupoUnoInt;
+		Integer grupoDosInt;
+		Integer digitoGrupoUno[];
+		Integer digitoGrupoDos[];
+		int aux, acum = 0;
+		grupoUnoInt = Integer.parseInt(grupoUnoCorto);
+		grupoDosInt = Integer.parseInt(grupoDosCorto);
+		digitoGrupoUno = new Integer[4];
+		digitoGrupoDos = new Integer[3];
+		//Separacion Digitos Grupo Uno
+		for (int i = 0; i < 4; i++) {
+			aux = grupoUnoInt % 10;
+			grupoUnoInt = grupoUnoInt/10;
+			acum = acum + aux*(i+5);
+			System.out.println(aux*(i+5));
+		}
+		//Separacion Digito Grupo Dos
+		for (int i = 0; i < 3; i++) {
+			aux = grupoDosInt % 10;
+			grupoDosInt=grupoDosInt/10;
+			acum = acum + aux * (i+2);
+			System.out.println(acum);
+		}
+		
+		aux = acum%11;
+		digitoControl=String.valueOf(11 - aux);
+		
+		
 	}
 	/**
 	 * Contructor sin parametros
 	 */
 	public Issn() {
+		this.grupoUno="0000";
+		this.grupoDos="000";
+		this.digitoControl="0";
 	}
 	/**
 	 * @return the grupoUno
@@ -76,8 +112,7 @@ public final class Issn {
 	 */
 	public String impresion(){
 		return "ISSN - " + this.grupoUno+
-				" - " + this.grupoDos+
-				" - " + this.digitoControl;
+				" - " + this.grupoDos + this.digitoControl;
 	}
 	
 	

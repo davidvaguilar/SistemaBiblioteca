@@ -36,6 +36,12 @@ public class Editorial {
 	 * Constructor sin parametros
 	 */
 	public Editorial() {
+		this.nombre= "sin nombre";
+		this.annoCreacion = 1900;
+		this.representateLegal = "no tiene";
+		this.codigo = 1;
+		this.paisSede = "Chile";
+		
 	}
 	
 	

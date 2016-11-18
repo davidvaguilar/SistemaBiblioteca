@@ -27,8 +27,16 @@ public class Tiempo {
 	 */
 	public Tiempo(int horas, int minutos, int segundos, String displayTiempo) {
 		this.horas = horas;
-		this.minutos = minutos;
-		this.segundos = segundos;
+		if(minutos >= 0 && minutos <= 59){
+			this.minutos = minutos;
+		}else{
+			this.minutos = 0;
+		}
+		if(segundos >=0 && segundos <=59){
+			this.segundos = segundos;
+		}else{
+			this.segundos = 0;
+		}
 		this.displayTiempo = displayTiempo;
 	}
 
@@ -36,6 +44,9 @@ public class Tiempo {
 	 * Contructor sin parametros
 	 */
 	public Tiempo() {
+		this.horas=0;
+		this.minutos=0;
+		this.segundos=0;
 	}
 
 	/**
@@ -95,11 +106,18 @@ public class Tiempo {
 	}
 	
 	public int totalMinutos(){
-		return 0;
+		Integer totalmin = 0;
+		totalmin = this.horas * 60;
+		totalmin = totalmin + this.minutos;
+		return totalmin;
 	}
 	
 	public int totalSegundos(){
-		return 0;
+		int totalseg = 0;
+		totalseg = this.horas * 60 * 60;
+		totalseg = totalseg + this.minutos * 60;
+		totalseg = totalseg + this.segundos;
+		return totalseg;
 	}
 	
 	public String impresion(){

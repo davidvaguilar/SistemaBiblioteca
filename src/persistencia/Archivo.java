@@ -16,9 +16,9 @@ import baseDeDatos.Publicacion;
  * @version 10/11/2016
  */
 public class Archivo {
-	public static HashMap<Integer, Autor> autores;
-	public static HashMap<Integer, Publicacion> publicaciones;
-	public static HashMap<Integer, Editorial> editorial;
+	public static HashMap<Integer, Autor> autores =new HashMap<>();
+	public static HashMap<Integer, Publicacion> publicaciones=new HashMap<>();
+	public static HashMap<Integer, Editorial> editorial=new HashMap<>();
 	
 	public void agregar(String nombreColeccion, Object elemento){
 		
@@ -43,4 +43,6 @@ public class Archivo {
 	public String imprimirPublicacion(Autor autor){
 		return "";
 	}
+	
+	
 }

@@ -32,11 +32,19 @@ public abstract class Publicacion {
 		this.autor = autor;
 		this.descripcion = descripcion;
 		this.editorial = editorial;
+		this.setCodigoInterno(this.getSiguienteCodigoDisponible());
+		
 	}
 	/**
 	 * Constructor sin parametros
 	 */
 	public Publicacion() {
+		this.titulo = "sin titulo";
+		this.annoEdicion = 1900;
+		this.autor = new Autor();
+		this.descripcion = "";
+		this.editorial=new Editorial();
+		this.setCodigoInterno(this.getSiguienteCodigoDisponible());
 	}
 	/**
 	 * @return the titulo
@@ -103,6 +111,7 @@ public abstract class Publicacion {
 	 */
 	public void setCodigoInterno(int codigoInterno) {
 		this.codigoInterno = codigoInterno;
+		this.siguienteCodigoDisponible = codigoInterno + 1;
 	}
 	/**
 	 * @param siguienteCodigoDisponible the siguienteCodigoDisponible to set
@@ -127,7 +136,7 @@ public abstract class Publicacion {
 	 */
 	@Override
 	public String toString() {
-		return "Publicacion [titulo=" + titulo + ", annoEdicion=" + annoEdicion + ", autor=" + autor
+		return "Publicacion [titulo=" + titulo + ", annoEdicion=" + annoEdicion + ", autor=" + autor.impresion()
 				+ ", codigoInterno=" + codigoInterno + ", descripcion=" + descripcion + ", editorial=" + editorial
 				+ "]";
 	}
